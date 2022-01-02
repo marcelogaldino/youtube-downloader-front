@@ -1,0 +1,62 @@
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.InputForm {
+  margin-bottom: 1rem;
+  height: 2rem;
+  outline: none;
+  padding: 0 2rem;
+  border: 1px solid #3a3a3a;
+  border-radius: 5px;
+  color: #3a3a3a;
+  font-size: medium;
+}
+
+.buttonDownload {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  background: #3A82F6;
+  font-weight: bold;
+  height: 3rem;
+  border-radius: 5px;
+  font-size: medium;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.buttonDownload:hover {
+  background: #2459af;
+}
+
+@media(max-width: 400px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .heading1 {
+    font-size: 28px;
+  }
+
+  .form {
+    width: 90%;
+  }
+}
