@@ -23,7 +23,7 @@ const Home: NextPage = () => {
 
       if (!response) throw new Error()
 
-      const info = await axios.get(`${process.env.BACKEND_URL || 'http://localhost:3000'}info`, {params: { url } })
+      const info = await axios.get(`${process.env.BACKEND_URL || 'http://localhost:3000'}/info`, {params: { url } })
       
       handleReset()
       setLoading(false)
