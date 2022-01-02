@@ -19,7 +19,11 @@ const Home: NextPage = () => {
 
     try {
       setLoading(true)
-      const response = await axios.post('https://downloader-youtube.herokuapp.com/download', {url}, {responseType: 'blob'})
+      const response = await axios.post(`${process.env.BACKEND_URL || 'http://localhost:3000'}/download`, {url}, {responseType: 'blob'})
+
+      if (!response) throw new Error()
+
+      const info = await axios.get(`${process.env.BACKEND_URL || 'http://localhost:3000'}info`, {params: { url } })
       
       handleReset()
       setLoading(false)
@@ -27,7 +31,7 @@ const Home: NextPage = () => {
       const fileLink = document.createElement('a');
       fileLink.href = fileURL;
       //const fileName = response.headers['content-disposition']?.substring(22, 52);
-      fileLink.setAttribute('download', 'download.mp4');
+      fileLink.setAttribute('download', `${info.data.title ? info.data.title : 'Download'}.mp4`);
       document.body.appendChild(fileLink);
       fileLink.innerText = 'Download'
       fileLink.click();
